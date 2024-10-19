@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+    <head>
+        <title>Bakegeneering Home</title>
+        <link rel="stylesheet" href="style1.css">
+        <link rel="icon" href="C:\Users\rcbec\Downloads\BakegeneeringLogo (1).png">
+        <script src="myscripts.js"></script>
+       
+        <template>
+            <div class = "selectedIngredient">
+                <p class = "infoBox hidden"><br><br><button onclick="toggleMoreInfoBox(this.parentElement.parentElement.id)">More Info</button></p>
+                <p class = "moreInfoBox hidden"><button class="closeMoreInfoBtn" onclick="toggleMoreInfoBox(this.parentElement.parentElement.id)">X</button></p>
+                <button class="infoBtn" onclick="openInfoBox(this.parentElement.id)">i</button>
+                <button class="deleteIngredientBtn" onclick="deleteIngredient(this.parentElement.id)">X</button>
+                <img>
+                <h1></h1>
+                <div class="ingredientText">
+                    <input type="text" value="1" oninput="refreshIngredientAmnt(this.parentElement.parentElement.id)">
+                     <select onchange="refreshIngredientAmnt(this.parentElement.parentElement.id)">
+                        <option value="Cups">Cups</option>
+                        <option value="Tbsps">Tbsps</option>
+                        <option value="Tsps">Tsps</option>
+                    </select>
+                </div>
+            </div>
+        </template>
+
+
+        <template><h4><div class="suggestion"></div></h4></template>
+        <template><h4><div class="warning"></div></h4></template>
+
+
+    </head>
+    <body>
+        <main>
+
+
+            <div id="techniqueSelector">
+                <h1>Knead Time</h1>
+                <label><input id = "knead" type="text" value = 0 oninput="refreshTechniques('knead')"> Minutes</label>
+                <h1>Rest Time</h1>
+                <label><input id = "rest" type="text" value = 0 oninput="refreshTechniques('rest')"> Hours</label>
+                <h1>Oven Temp</h1>
+                <label><input id = "temp" type="text" value = 350 oninput="refreshTechniques('temp')"> Degrees</label>
+                <br>
+                <h1>Templates:</h1>
+                <h2 onclick="useTemplate('cookies')">Cookies</h2>
+                <h2 onclick="useTemplate('cake')">Cake</h2>
+                <h2 onclick="useTemplate('bread')">Bread</h2>
+                <h3>Warnings/Suggestions:</h3>
+                <div id="warnings">
+                </div>
+                <button onclick="makeHealthy()" id="healthify">Nutrition Boost</button>
+
+
+            </div>
+
+
+   
+            <div id = "sidebar">
+                <button class="ingredient" onclick="selectIngredient('Flour')">
+                    <img src="C:\Users\rcbec\Downloads\flour.jpg">
+                    <h1>Flour</h1>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Whole Wheat Flour')">
+                    <img src="C:\Users\rcbec\Downloads\WWFlour.jpg">
+                    <h3>Whole Wheat Flour</h3>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Eggs',1,'Tbsps')">
+                    <img src="C:\Users\rcbec\Downloads\Eggs.jpg">
+                    <h1>Eggs</h1>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Sugar')">
+                    <img src="C:\Users\rcbec\Downloads\Sugar.jpg">
+                    <h1>Sugar</h1>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Brown Sugar')">
+                    <img src="C:\Users\rcbec\Downloads\BSugar.jpg">
+                    <h2>Brown Sugar</h2>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Butter')">
+                    <img src="C:\Users\rcbec\Downloads\Butter.jpg">
+                    <h1>Butter</h1>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Vegetable Oil')">
+                    <img src="C:\Users\rcbec\Downloads\Oil.jpg">
+                    <h2>Vegeteble Oil</h2>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Olive Oil')">
+                    <img src="C:\Users\rcbec\Downloads\OOil.jpg">
+                    <h1>Olive Oil</h1>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Baking Soda',1,'Tsps')">
+                    <img src="C:\Users\rcbec\Downloads\Baking Soda.jpg">
+                    <h2>Baking Soda</h2>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Baking Powder',1,'Tsps')">
+                    <img src="C:\Users\rcbec\Downloads\Baking Powder.jpg">
+                    <h3>Baking Powder</h3>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Cocoa Powder',1,'Tbsps')">
+                    <img src="C:\Users\rcbec\Downloads\Cocoa.jpg">
+                    <h3>Cocoa Powder</h3>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Yeast',1,'Tbsps')">
+                    <img src="C:\Users\rcbec\Downloads\Yeast.jpg">
+                    <h1>Yeast</h1>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Milk')">
+                    <img src="C:\Users\rcbec\Downloads\Milk.jpg">
+                    <h1>Milk</h1>
+                </button>
+                <button class="ingredient" onclick="selectIngredient('Water')">
+                    <img src="C:\Users\rcbec\Downloads\Water.jpg">
+                    <h1>Water</h1>
+                </button>
+            </div>
+
+
+                <div id="info">
+                    <div id="stats">
+                        <div class="stat">
+                            <progress id="sweetness" value="0" max="1"></progress>
+                            <p>Sweetness</p>
+                        </div>
+                        <div class="stat">
+                            <progress id="moistness" value="0" max="1"></progress>
+                            <p>Moistness</p>
+                        </div>
+                        <div class="stat">
+                            <progress id="structure" value="0" max="1"></progress>
+                            <p>Structure</p>
+                        </div>
+                        <div class="stat">
+                            <progress id="browning" value="0" max="1"></progress>
+                            <p>Browning</p>
+                        </div>
+                        <div class="stat">
+                            <progress id="leavening" value="0" max="1"></progress>
+                            <p>Leavening</p>
+                        </div>
+                        <div class="stat">
+                            <p>Predicted Classification:</p>
+                            <div id="classification">Unknown</div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div class="nutritionLabel">
+                        <header>
+                            <h1>Nutrition Facts</h1>
+                            <div class="divider"></div>
+                            <h5><b>Nutrition facts are based on entire batch. Divide by expected amount of servings.</b></h5>
+                            <div class="dividerLarge"></div>
+                            <h2><b>Calories</span><span class="right" id="cals">0</b></h2>
+                            <div class="dividerMed"></div>
+                            <p><span class="right bold">% Daily Value</span></p>
+                            <br>
+                        </header>
+       
+                        <div class="divider"></div>
+                        <p>
+                            <span><b>Total Fat </b><span id="fat">0</span>g</span>
+                            <b class="right">0%</b>
+                        </p>
+                        <div class="divider"></div>
+                        <p>
+                            <span class="indented">Saturated Fat <span id="satFat">0</span>g</span>
+                            <b class="right">0%</b>
+                        </p>
+                </div>
+                <div class="nutritionLabel">
+                    <p>
+                        <span class="indented">Trans Fat <span id="transFat">0</span>g</span>
+                    </p>
+                <div class="divider"></div>
+                    <p>
+                        <span><b>Cholesterol </b><span id="chol">0</span>mg</span>
+                        <b class="right">0%</b>
+                    </p>
+   
+                    <div class="divider"></div>
+                    <p>
+                        <span><b>Sodium </b><span id="sodium">0</span>mg</span>
+                        <b class="right">0%</b>
+                    </p>
+   
+                    <div class="divider"></div>
+                    <p>
+                        <span><b>Total Carbohydrates </b><span id="carbs">0</span>g</span>
+                        <b class="right">0%</b>
+                    </p>
+                    <div class="divider"></div>
+                    <p>
+                        <span class="indented">Dietary Fiber <span id="fiber">0</span>g</span>
+                        <b class="right">0%</b>
+                    </p>
+                    <div class="divider"></div>
+                    <p>
+                        <span class="indented">Total Sugars <span id="sugar">0</span>g</span>
+                    </p>
+                    <div class="divider"></div>
+                    <p>
+                        <span class="doubleIndented">Added Sugars <span id="sugAdd">0</span>g</span>
+                        <b class="right">0%</b>
+                    </p>
+   
+                    <div class="divider"></div>
+                    <p>
+                        <span><b>Protein </b><span id="protein">0</span>g</span>
+                        <b class="right">0%</b>
+                    </p>
+                    <div class="divider"></div>
+                </div>
+                </div>
+            <div id="selectedIngredients"></div>
+        </main>
+    </body>
+</html>
+

@@ -1,0 +1,405 @@
+
+
+html{
+    scrollbar-width: none;
+}
+
+
+#info{
+    position:fixed;
+    display:flex;
+    height:200px;
+    background-color: lightgray;
+    border-style: solid;
+    padding:10px;
+    margin-left:190px;
+    top:0;
+    width:100%;
+    flex: none;
+    z-index: 10;
+}
+
+
+#techniqueSelector{
+    padding-left:10px;
+    position:fixed;
+    height:100%;
+    right:0;
+    top:0;
+    width:200px;
+    background-color:rgb(150, 150, 150);
+    z-index:11;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#techniqueSelector input{
+    text-align: right;
+    width:30px;
+    background-color: lightgray;
+    margin-left: 5px;
+}
+
+
+#techniqueSelector h1{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+
+#techniqueSelector p{
+    font-weight: bold;
+}
+
+
+#techniqueSelector h2{
+    margin-top: 7px;
+    margin-bottom: 5px;
+    margin-left:20px;
+}
+
+
+
+
+#techniqueSelector h4{
+    font-size:medium;
+    position: relative;
+    left:20px;
+    width:170px;
+}
+
+
+#warnings{
+    margin-bottom: 15px;
+    position: relative;
+    overflow-y: scroll;
+    scrollbar-width:none;
+    flex-grow: 2;
+}
+
+
+#warnings h4{
+    margin-top: 0px;
+}
+
+
+#techniqueSelector .warning{
+    height:10px;
+    width:10px;
+    display: inline-block;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 5px;
+    border-style: solid;
+}
+
+
+#techniqueSelector .suggestion{
+    height:10px;
+    width:10px;
+    display: inline-block;
+    background-color: yellow;
+    border-style: solid;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+
+#techniqueSelector #healthify{
+    background-color: transparent;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 34px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+
+#sidebar{
+    position:fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 100%;
+    top:0;
+    left:0;
+    background-color: rgb(150, 150, 150);
+    overflow-y: scroll;
+    padding-top: 20px;
+    z-index: 11;
+}
+
+
+#sidebar .ingredient{
+    border-radius: 15px;
+    background-color: lightgray;
+    width: 150px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    border-color: gray;
+}
+
+
+#sidebar .ingredient:hover{
+    background-color: rgb(166, 166, 166)
+}
+
+
+#sidebar .ingredient img{
+    width:130px;
+    height:130px;
+    border-radius: 10px;
+}
+
+
+#selectedIngredients{
+    margin-right:210px;
+    display:flex;
+    flex-wrap: wrap;
+    margin-top:220px;
+    margin-left:200px;
+}
+
+
+.selectedIngredient{
+    border-radius: 15px;
+    background-color: lightgray;
+    width: 180px;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 15px;
+    margin: 20px;
+    position: relative;
+}
+
+
+.selectedIngredient img{
+    width:130px;
+    height:130px;
+    border-radius: 10px;
+}
+
+
+
+
+.selectedIngredient *{
+   margin:2px;
+}
+
+
+ .deleteIngredientBtn{
+    position: absolute;
+    align-self:flex-end;
+    border: none;
+    background-color: transparent;
+    font-weight: bolder;
+}
+
+
+.selectedIngredient .ingredientText{
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+
+.infoBtn{
+    margin: 2px;
+    position: absolute;
+    align-self: flex-start;
+    border-width: 1px;
+    background-color: lightgray;
+    font-weight: bolder;
+    border-radius: 50%;
+    padding:0px;
+    width:17.5px;
+    height:17.5px;
+}
+
+
+.infoBox{
+    padding:5px;
+    position:absolute;
+    background-color: rgb(163, 162, 162);
+    box-shadow: 10px 10px 10px black;
+    max-width: 120px;
+    border-radius: 10px;
+}
+
+
+.moreInfoBox{
+    position:fixed;
+    top:10%;
+    left:7%;
+    width:80%;
+    height:70%;
+    background-color: gray;
+    z-index: 90;
+    overflow-y: scroll;
+    box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    scrollbar-width: none;
+    padding: 40px;
+}
+
+.moreInfoBox div{
+    text-indent: 50px;
+    font-size: x-large;
+    text-align: left;
+}
+
+.closeMoreInfoBtn{
+    margin: 15px;
+    border: none;
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: xx-large;
+    position: absolute;
+    right:0;
+}
+
+.selectedIngredient select{
+    border:none;
+    background-color: lightgray;
+    margin:0px;
+    font-size:20px;
+  }
+
+
+.selectedIngredient input{
+    width:40px;
+    border: none;
+    background-color: lightgray;
+    text-align: right;
+    font-size: 20px;
+    margin:0px;
+}
+
+
+.hidden{
+    display:none;
+}
+
+
+.nutritionLabel{
+    margin-left:0px;
+    display: inline-block;
+    padding:5px;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: black;
+    width:240px;
+    background-color: white;
+}
+
+
+.nutritionLabel *{
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+
+.nutritionLabel h5{
+    margin:5px;
+}
+
+
+.divider{
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: black;
+}
+
+
+.dividerMed{
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+
+.dividerLarge{
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+}
+
+
+.right{
+    float:right;
+}
+
+
+.indented{
+    margin-left:20px;
+}
+
+
+.doubleIndented{
+    margin-left:40px;
+}
+
+
+progress {
+    width:100%;
+    border: 2px solid grey;
+    height: 25px;
+}
+progress::-webkit-progress-bar {
+    background-color: white;
+}
+progress::-webkit-progress-value {
+    background-color: pink;
+}
+
+
+#stats{
+    width:470px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+
+.stat{
+    width: 225px;
+    display: inline;
+    position: relative;
+    margin:5px;
+    flex-shrink: 1;
+}
+
+
+.stat p{
+    margin-top: 5px;
+    font-size: large;
+    text-align: center;
+    font-weight: bolder;
+    width: 221px;
+    margin-bottom: 10px;
+}
+
+
+.stat div{
+    display: inline-block;
+    text-align: center;
+    font-size: large;
+    width: 100%;
+    margin-top: 0px;
+    background-color: whitesmoke;
+    border-style: solid;
+    position: relative;
+    bottom: 10px;
+    border-color: gray;
+}
+
+
+
